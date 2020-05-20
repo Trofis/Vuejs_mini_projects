@@ -1,0 +1,13 @@
+.progressbar {
+    background-color: grey;
+    /* (height of inner div) / 2 + padding */
+    width: 20em;
+    padding: 3px;
+  }
+  
+  .progressbar>div {
+    background-color: green;
+    height:2em;
+    color:white;
+    /* Adjust with JavaScript */
+  }

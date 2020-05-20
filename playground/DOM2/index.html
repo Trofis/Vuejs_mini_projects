@@ -1,0 +1,25 @@
+
+<!-- Put this in the HTML section in JSFiddle! -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<div id="app">
+
+	<button v-on:click="counter1++">
+		counter1
+	</button>
+	<button v-on:click="counter2++">
+		counter2
+	</button>
+	<p> Count : {{ counter1 }} | {{ counter2 }}</p>
+	<p> Count : {{ result() }} | {{ output }}</p>
+
+	<button @click="changeLink">Clik to change link</button>
+	<a :href="link">Link</a>
+
+</div>
+
+<script src="app.js"></script>
+
+
+
+
+

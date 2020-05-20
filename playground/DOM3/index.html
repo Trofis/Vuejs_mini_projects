@@ -1,0 +1,22 @@
+
+<!-- Put this in the HTML section in JSFiddle! -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="index.css">
+<div id="app">
+
+	<div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+	<div class="demo" :style="[myStyle, {height:width+ 'px'}]"></div>
+	<div class="demo" :class='[color, {red:attachRed}]'></div>
+	<hr>
+	<input type="text" v-model="color">
+	<input type="text" v-model="width">
+
+
+</div>
+
+<script src="app.js"></script>
+
+
+
+
+

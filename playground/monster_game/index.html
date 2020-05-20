@@ -1,0 +1,53 @@
+
+<!-- Put this in the HTML section in JSFiddle! -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="container" id="app">
+	<div class="row justify-content-md-center">
+        <div class="col-md-auto text-center">
+            <h1>YOU</h1>
+            <div class="progressbar" >
+                <div :style="actualWidthY">
+                    {{hp_you}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <h1>MONSTER</h1>
+            <div class="progressbar" >
+                <div :style="actualWidthM">
+                    {{hp_monster}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center justify-content-md-center"  style="margin-top: 2em;">
+        <button class="btn btn-success" v-if="!game_started" @click="game_started=true">Start game</button>
+        <div class="btn-group" role="group" v-else>
+            <button type="button" :disabled="end" class="btn btn-primary" @click="attack()">Attack</button>
+            <button type="button" :disabled="end" class="btn btn-info"@click="specialAttack()">Special Attack</button>
+            <button type="button" :disabled="end" class="btn btn-heal"@click="heal()">Heal</button>
+            <button type="button" class="btn btn-danger" @click="game_started=false">Stop</button>
+        </div>
+    </div>
+    <div class="text-center justify-content-md-center" style="margin-top: 2em;" v-for="msg in messages">
+        <template v-if="msg.type == 'monster'">
+            <div class="alert alert-danger" role="alert" >
+                {{msg.value}}
+            </div>
+        </template>
+       <template v-else>
+            <div class="alert alert-primary" role="alert">
+                {{msg.value}}
+            </div>
+       </template>
+        
+    </div>
+</div>
+
+<script src="app.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
